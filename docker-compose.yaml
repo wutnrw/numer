@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    ports:
+      - "3307:3306"
+
+  server:
+    build: ./backend
+    ports:
+      - "9000:9000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: 123456
+      DB_NAME: numer
+
+  app:
+    build: ./numerical_project
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
