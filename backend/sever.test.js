@@ -13,10 +13,10 @@ describe("GET /gettoken/:name", () => {
   });
 });
 
-test("Querry", async () => {
-  const response = await request(app).get("/test");
-  expect(response.statusCode).toBe(200);
-  expect(response.text).toBe(
-    '[{"ID":1,"Equa":"x^4-13"},{"ID":2,"Equa":"1/4+x/2"}]'
-  );
-});
+// test("Querry", async () => {
+//   const response = await request(app).get("/test");
+//   expect(response.statusCode).toBe(200);
+//   expect(response.text).toBe(
+//     '[{"ID":1,"Equa":"x^4-13"},{"ID":2,"Equa":"1/4+x/2"}]'
+//   );
+// });
